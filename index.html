@@ -16,6 +16,17 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
     </head>
+    <script>
+        async function newestEpisodeId() {
+            let response = await fetch("https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=5&channelId=UChgSLugK6OvsJyK5IYA3nUQ&type=video&order=date&q=campaign&type=video&key=AIzaSyCtV3AidiBTJdDQiVZYYVwfLeMB-msURM4");
+            let data = await response.json();
+            //console.log(document.getElementById("newVideo").id);
+            document.getElementById("newVideo").src = "https://www.youtube.com/embed/" + data.items[0].id.videoId;
+        }
+
+        newestEpisodeId();
+        
+    </script>
     <body id="page-top">
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
@@ -40,7 +51,7 @@
         <header class="masthead">
             <div class="container">
                 <div class="masthead-subheading">Welcome To Our Chaos!</div>
-                <div class="masthead-heading text-uppercase">Channel ID = UChgSLugK6OvsJyK5IYA3nUQ</div>
+                <div class="masthead-heading text-uppercase">Keep it Boppin</div>
                 <a class="btn btn-primary btn-xl text-uppercase" href="#services">Tell Me More</a>
             </div>
         </header>
@@ -49,7 +60,7 @@
             <div class="container">
                 <div class="text-center">
                     <h2 class="section-heading text-uppercase">Latest Episode</h2>
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PLT7ewGE3CDx4B7CKhS2affcYCwsfz1VS6" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    <iframe id="newVideo" width="560" height="315" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                     <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
                 </div>
                 <div class="row text-center">
@@ -602,10 +613,6 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
         <script src="js/scripts.js"></script>
-        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-        <!-- * *                               SB Forms JS                               * *-->
-        <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
-        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
         <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
     </body>
 </html>
